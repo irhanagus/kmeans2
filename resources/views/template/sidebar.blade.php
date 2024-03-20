@@ -112,9 +112,34 @@
                   </p>
                 </a>
             </li>
+            <li class="nav-item">
+                <a href="{{ route('logout')}}" class="nav-link">
+                  <i class="nav-icon fas fa-th"></i>
+                  <p>
+                    Logout
+                  </p>
+                </a>
+            </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
     <!-- /.sidebar -->
   </aside>
+
+  <!-- Control Sidebar -->
+  <aside class="control-sidebar control-sidebar-dark">
+    <!-- Control sidebar content goes here -->
+    <div class="p-3">
+      <h5>Title</h5>
+      <li class="nav-item">
+            <a href="{{ route('logout')}}" class="nav-link">
+            <p>
+                Logout
+            </p>
+            </a>
+        </li>
+    </div>
+
+  </aside>
+  <!-- /.control-sidebar -->
