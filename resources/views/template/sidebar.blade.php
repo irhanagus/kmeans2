@@ -104,6 +104,8 @@
                     </li>
                 </ul>
             </li>
+
+            @if (auth()->user()->level == "admin")
             <li class="nav-item">
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
@@ -112,6 +114,8 @@
                   </p>
                 </a>
             </li>
+            @endif
+
             <li class="nav-item">
                 <a href="{{ route('logout')}}" class="nav-link">
                   <i class="nav-icon fas fa-th"></i>
