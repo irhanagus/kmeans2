@@ -15,4 +15,6 @@ route::get('/logout', [LoginController::class,'logout'])->name('logout');
 
 route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::get('/home', [HomeController::class,'index'])->name('home');
+    route::get('/register', [LoginController::class,'register'])->name('register');
+    route::post('/simpanregister', [LoginController::class,'simpanregister'])->name('simpanregister');
 });
