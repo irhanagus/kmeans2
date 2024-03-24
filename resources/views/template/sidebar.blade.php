@@ -22,7 +22,7 @@
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <!-- Add icons to the links using the .nav-icon class with font-awesome or any other icon font library -->
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('home')}}" class="nav-link">
                     <i class="nav-icon fas fa-tachometer-alt"></i>
                     <p>
                         Dashboard
@@ -39,13 +39,13 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('data-santri')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Data Santri</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('aktiv-santri')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Rekap Aktivitas</p>
                         </a>
@@ -134,15 +134,14 @@
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <li class="nav-item">
-            <a href="{{ route('logout')}}" class="nav-link">
-            <p>
-                Logout
-            </p>
-            </a>
-        </li>
+    <!-- Sidebar user panel (optional) -->
+    <div class="mt-3 pb-3 mb-3 d-flex">
+        <div class="sidebar">
+          <img src="{{ asset('AdminLte/dist/img/user2-160x160.jpg')}}" class="img-circle elevation-2 centered-image" alt="User Image">
+        </div>
+    </div>
+    <div class="info">
+        <a href="#" class="d-block">{{ auth()->user()->name}}</a>
     </div>
 
   </aside>
