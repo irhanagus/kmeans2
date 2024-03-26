@@ -107,7 +107,7 @@
 
             @if (auth()->user()->level == "admin")
             <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="{{ route('data-user')}}" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     User Management

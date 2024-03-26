@@ -56,6 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th><center>JENIS KELAMIN</center></th>
                         <th><center>JENJANG</center></th>
                         <th><center>ALAMAT</center></th>
+                        <th><center>AKSI</center></th>
                     </tr>
                     @foreach ($dtsantri as $item)
                     <tr>
@@ -64,6 +65,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><center>{{ $item->jenis_kelamin }}</center></td>
                         <td><center>{{ $item->jenjang }}</center></td>
                         <td>{{ $item->alamat }}</td>
+                        <td><center>
+                        <a href=""><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
+                        </center></td>
                     </tr>
                     @endforeach
                 </table>

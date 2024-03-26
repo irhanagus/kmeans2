@@ -8,3 +8,4 @@
   <link rel="stylesheet" href="{{ asset('AdminLte/plugins/fontawesome-free/css/all.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{ asset('AdminLte/dist/css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('font/css/all.min.css')}}">

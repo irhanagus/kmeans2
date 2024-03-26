@@ -83,7 +83,8 @@ class SantriController extends Controller
      */
     public function edit($id)
     {
-        //
+        $santri = santri::finderfaill($id);
+        return view('santri.edit_santri', compact('santri'));
     }
 
     /**
