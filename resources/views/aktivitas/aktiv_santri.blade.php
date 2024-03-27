@@ -52,6 +52,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th><center>Poin<br>Pelanggaran</center></th>
                         <th><center>Tingkat<br>Bacaan</center></th>
                         <th><center>Tingkat<br>Makna</center></th>
+                        <th><center>Aksi</center></th>
                     </tr>
                     @foreach ($aktivsantri as $item)
                     <tr>
@@ -62,6 +63,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><center>{{ $item->poin_pelanggaran }}</center></td>
                         <td><center>{{ $item->tingkat_bacaan }}</center></td>
                         <td><center>{{ $item->tingkat_makna }}</center></td>
+                        <td><center>
+                            <a href="{{ url('editaktiv-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
+                            </center>
+                        </td>
                     </tr>
                     @endforeach
                 </table>

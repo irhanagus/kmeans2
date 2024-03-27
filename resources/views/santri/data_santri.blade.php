@@ -51,6 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
+                        <th><center>NO</center></th>
                         <th><center>NIS</center></th>
                         <th><center>NAMA</center></th>
                         <th><center>JENIS KELAMIN</center></th>
@@ -60,13 +61,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                     @foreach ($dtsantri as $item)
                     <tr>
+                        <td><center>{{ $loop->iteration }}</center></td>
                         <td><center>{{ $item->nis }}</center></td>
                         <td>{{ $item->nama }}</td>
                         <td><center>{{ $item->jenis_kelamin }}</center></td>
                         <td><center>{{ $item->jenjang }}</center></td>
                         <td>{{ $item->alamat }}</td>
                         <td><center>
-                        <a href=""><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
+                        <a href="{{ url('edit-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
                         </center></td>
                     </tr>
                     @endforeach

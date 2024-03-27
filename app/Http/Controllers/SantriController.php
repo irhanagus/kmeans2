@@ -83,8 +83,21 @@ class SantriController extends Controller
      */
     public function edit($id)
     {
-        $santri = santri::finderfaill($id);
-        return view('santri.edit_santri', compact('santri'));
+        $santri = santri::findOrfail($id);
+        return view('santri.edit_santri',compact('santri'));
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function editaktiv($id)
+    {
+        $santri = santri::findOrfail($id);
+        return view('aktivitas.editaktiv_santri',compact('santri'));
     }
 
     /**
@@ -96,7 +109,22 @@ class SantriController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $santri = santri::findOrfail($id);
+        $santri->update($request->all());
+        return redirect('data-santri')->with('toast_success', 'Data Berhasil Terupdate');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function updateaktiv(Request $request, $id)
+    {
+        $santri = santri::findOrfail($id);
+        $santri->update($request->all());
+        return redirect('aktiv-santri')->with('toast_success', 'Data Berhasil Terupdate');
     }
 
     /**

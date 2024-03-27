@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -25,7 +26,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.tambah_user');
     }
 
     /**
@@ -36,7 +37,15 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        user::create([
+            'name' => $request->name,
+            'level' => $request->level,
+            'email' => $request->email,
+            'password' => bcrypt($request->password),
+            'remember_token' => Str::random(60),
+        ]);
+
+        return redirect('data-user')->with('toast_success', 'Data Berhasil Tersimpan');
     }
 
     /**
@@ -58,7 +67,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = user::findOrfail($id);
+        return view('user.edit_user',compact('user'));
     }
 
     /**
@@ -70,7 +80,9 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = user::findOrfail($id);
+        $user->update($request->all());
+        return redirect('data-user')->with('toast_success', 'Data Berhasil Terupdate');
     }
 
     /**

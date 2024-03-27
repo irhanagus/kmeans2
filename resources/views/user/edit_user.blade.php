@@ -43,22 +43,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="card card-info card-outline">
 
             <div class="card-body">
-                <form action="{{ url('update-santri',$santri->id) }}" method="post">
+                <form action="{{ url('update-user',$user->id) }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group">
-                        <input type="text" id="nis" name="nis" class="form-control" placeholder="Nomer Induk Santri" value="{{ $santri->nis}}">
+                        <input type="text" id="name" name="name" class="form-control" placeholder="Nama" value="{{ $user->name}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Santri" value="{{ $santri->nama}}">
+                        <input type="text" id="level" name="level" class="form-control" placeholder="Level" value="{{ $user->level}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin" value="{{ $santri->jenis_kelamin}}">
+                        <input type="text" id="email" name="email" class="form-control" placeholder="email" value="{{ $user->email}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="jenjang" name="jenjang" class="form-control" placeholder="Jenjang" value="{{ $santri->jenjang}}">
-                    </div>
-                    <div class="form-group">
-                        <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat">{{ $santri->alamat}}</textarea>
+                        <input type="password" id="password" name="password" class="form-control" placeholder="password" value="{{ bcrypt($user->password)}}">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Ubah Data</button>
