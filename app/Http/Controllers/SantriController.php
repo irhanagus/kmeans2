@@ -13,7 +13,7 @@ class SantriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dtsantri = santri::all();
+        $dtsantri = santri::paginate(10);
         return view('santri.data_santri', compact('dtsantri'));
     }
 
@@ -111,7 +111,7 @@ class SantriController extends Controller
     {
         $santri = santri::findOrfail($id);
         $santri->update($request->all());
-        return redirect('data-santri')->with('toast_success', 'Data Berhasil Terupdate');
+        return redirect('data-santri')->with('toast_success', 'Data Berhasil Diupdate');
     }
 
     /**
@@ -122,9 +122,128 @@ class SantriController extends Controller
      */
     public function updateaktiv(Request $request, $id)
     {
-        $santri = santri::findOrfail($id);
+        // Temukan santri berdasarkan ID
+        $santri = Santri::findOrFail($id);
+
+        // Update atribut santri dengan data yang diterima dari request
         $santri->update($request->all());
-        return redirect('aktiv-santri')->with('toast_success', 'Data Berhasil Terupdate');
+
+        // Lakukan perhitungan hasil ngaji
+        $hasil_ngaji = $this->hitungHasilNgaji($santri->khd_ngaji);
+
+        // Lakukan perhitungan hasil piket
+        $hasil_piket = $this->hitungHasilPiket($santri->khd_piket);
+
+        // Lakukan perhitungan hasil pelanggaran
+        $hasil_pelanggaran = $this->hitungHasilPelanggaran($santri->poin_pelanggaran);
+
+        // Lakukan perhitungan hasil bacaan
+        $hasil_bacaan = $this->hitungHasilBacaan($santri->tingkat_bacaan);
+
+        // Lakukan perhitungan hasil makna
+        $hasil_makna = $this->hitungHasilMakna($santri->tingkat_makna);
+
+        // Simpan hasil ke dalam database
+        $santri->hasil_ngaji = $hasil_ngaji;
+        $santri->hasil_piket = $hasil_piket;
+        $santri->hasil_pelanggaran = $hasil_pelanggaran;
+        $santri->hasil_bacaan = $hasil_bacaan;
+        $santri->hasil_makna = $hasil_makna;
+
+        // Hitung rata-rata dari hasil-ngaji, hasil-piket, hasil-pelanggaran, hasil-bacaan, dan hasil-makna
+        $rata = ($hasil_ngaji + $hasil_piket + $hasil_pelanggaran + $hasil_bacaan + $hasil_makna) / 5;
+
+        // Simpan rata-rata ke dalam atribut santri
+        $santri->rata = $rata;
+
+        // Simpan perubahan ke dalam database
+        $santri->save();
+
+        return redirect('aktiv-santri')->with('toast_success', 'Data Berhasil Diupdate');
+    }
+
+    // Metode untuk menghitung hasil ngaji
+    private function hitungHasilNgaji($khd_ngaji)
+    {
+        if ($khd_ngaji >= 81) {
+            return 1;
+        } elseif ($khd_ngaji >= 61) {
+            return 0.8;
+        } elseif ($khd_ngaji >= 41) {
+            return 0.6;
+        } elseif ($khd_ngaji >= 21) {
+            return 0.4;
+        } else {
+            return 0.2;
+        }
+    }
+
+    // Metode untuk menghitung hasil piket
+    private function hitungHasilPiket($khd_piket)
+    {
+        if ($khd_piket >= 81) {
+            return 1;
+        } elseif ($khd_piket >= 61) {
+            return 0.8;
+        } elseif ($khd_piket >= 41) {
+            return 0.6;
+        } elseif ($khd_piket >= 21) {
+            return 0.4;
+        } else {
+            return 0.2;
+        }
+    }
+
+    // Metode untuk menghitung hasil pelanggaran
+    private function hitungHasilPelanggaran($poin_pelanggaran)
+    {
+        if ($poin_pelanggaran <= 200) {
+            return 1;
+        } elseif ($poin_pelanggaran <= 400) {
+            return 0.8;
+        } elseif ($poin_pelanggaran <= 600) {
+            return 0.6;
+        } elseif ($poin_pelanggaran <= 800) {
+            return 0.4;
+        } else {
+            return 0.2;
+        }
+    }
+
+    // Metode untuk menghitung hasil bacaan
+    private function hitungHasilBacaan($tingkat_bacaan)
+    {
+        switch ($tingkat_bacaan) {
+            case "Tahsin":
+                return 1;
+            case 4:
+                return 0.8;
+            case 3:
+                return 0.6;
+            case 2:
+                return 0.4;
+            case 1:
+                return 0.2;
+            default:
+                return "Tidak terdeteksi";
+        }
+    }
+
+    // Metode untuk menghitung hasil makna
+    private function hitungHasilMakna($tingkat_makna)
+    {
+        switch ($tingkat_makna) {
+            case "Al-Idlafi":
+                return 1;
+            case "Al-Sarii":
+                return 0.75;
+            case "Al-Taanni":
+                return 0.5;
+            case "Kitabah":
+                return 0.25;
+            default:
+                return "Tidak terdeteksi";
+        }
     }
 
     /**
@@ -133,8 +252,25 @@ class SantriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+        $santri = santri::findOrfail($id);
+        $santri->delete();
+        return back()->with('info', 'Data Berhasil Dihapus');
+    }
+
+    public function destroyaktiv($id)
+    {
+        $santri = santri::findOrfail($id);
+        $santri->update([
+            'khd_ngaji' => '0',
+            'khd_piket' => '0',
+            'poin_pelanggaran' => '0',
+            'tingkat_bacaan' => '0',
+            'tingkat_makna' => '0',
+        ]);
+
+        return back()->with('info', 'Data Berhasil Dibersihkan');
     }
 }

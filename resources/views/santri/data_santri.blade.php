@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
-    <title>AdminLTE 3 | Starter</title>
+    <title>K-Means | Data Santri</title>
     @include('template.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -68,11 +68,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><center>{{ $item->jenjang }}</center></td>
                         <td>{{ $item->alamat }}</td>
                         <td><center>
-                        <a href="{{ url('edit-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
+                        <a href="{{ url('edit-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a>
+                        |
+                        <a href="{{ url('delete-santri',$item->id) }}"> <i class="fa-solid fa-trash" style="color: red"></i></a>
                         </center></td>
                     </tr>
                     @endforeach
                 </table>
+            </div>
+
+            <div class="card-footer">
+                {{ $dtsantri->links() }}
             </div>
         </div>
     </div>

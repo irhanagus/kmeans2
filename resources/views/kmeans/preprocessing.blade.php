@@ -1,7 +1,3 @@
-<?php
-    $no = 0;
-?>
-
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -9,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
-    <title>K-Means | User</title>
+    <title>K-Means | Pre-Processing</title>
     @include('template.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -29,12 +25,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data User</h1>
+            <h1 class="m-0">Pre-Processing</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item active">Imp. K-Means</li>
+              <li class="breadcrumb-item active">Pre-Processing</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -45,41 +42,30 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
         <div class="card card-info card-outline">
-            <div class="card-header">
-                <div class="card-tools">
-                    <a href="{{ route('tambah-user')}}" class="btn btn-success">Tambah User <i class="fas fa-plus-square"></i></a>
-                    {{-- <a href="#" class="btn btn-primary" data-Toggle="Model" data-Toggle="#exampleModel">Import</a> --}}
-                </div>
-            </div>
 
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th><center>NO</center></th>
-                        <th><center>NAMA</center></th>
-                        <th><center>LEVEL</center></th>
-                        <th><center>EMAIL</center></th>
-                        <th><center>AKSI</center></th>
+                        <th><center>NIS</center></th>
+                        <th><center>Nama</center></th>
+                        <th><center>% Kehadiran<br>Pengajian</center></th>
+                        <th><center>% Kehadiran<br>Piket</center></th>
+                        <th><center>Poin<br>Pelanggaran</center></th>
+                        <th><center>Tingkat<br>Bacaan</center></th>
+                        <th><center>Tingkat<br>Makna</center></th>
                     </tr>
-                    @foreach ($dtuser as $item)
+                    @foreach ($aktivsantri as $item)
                     <tr>
-                        <td><center><?php echo ++$no; ?>.</center></td>
-                        <td>{{ $item->name }}</td>
-                        <td><center>{{ $item->level }}</center></td>
-                        <td><center>{{ $item->email }}</center></td>
-                        <td><center>
-                            <a href="{{ url('edit-user',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a>
-                            |
-                            <a href="{{ url('delete-user',$item->id) }}"> <i class="fa-solid fa-trash" style="color: red"></i></a>
-                            </center>
-                        </td>
+                        <td><center>{{ $item->nis }}</center></td>
+                        <td><center>{{ $item->nama }}</center></td>
+                        <td><center>{{ $item->hasil_ngaji }}</center></td>
+                        <td><center>{{ $item->hasil_piket }}</center></td>
+                        <td><center>{{ $item->hasil_pelanggaran }}</center></td>
+                        <td><center>{{ $item->hasil_bacaan }}</center></td>
+                        <td><center>{{ $item->hasil_makna }}</center></td>
                     </tr>
                     @endforeach
                 </table>
-            </div>
-
-            <div class="card-footer">
-                {{ $dtuser->links() }}
             </div>
         </div>
     </div>

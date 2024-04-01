@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
-    <title>AdminLTE 3 | Starter</title>
+    <title>K-Means | Rekap Aktivitas</title>
     @include('template.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -25,7 +25,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data Santri</h1>
+            <h1 class="m-0">Rekap Aktivitas Santri</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -64,7 +64,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><center>{{ $item->tingkat_bacaan }}</center></td>
                         <td><center>{{ $item->tingkat_makna }}</center></td>
                         <td><center>
-                            <a href="{{ url('editaktiv-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a> | <a href="#"> <i class="fa-solid fa-trash" style="color: red"></i></a>
+                            <a href="{{ url('editaktiv-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a> | <a href="{{ url('clearaktiv-santri',$item->id) }}"> <i class="fa-solid fa-eraser"></i></i></a>
                             </center>
                         </td>
                     </tr>

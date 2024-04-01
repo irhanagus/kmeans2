@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $dtuser = User::all();
+        $dtuser = User::paginate(2);
         return view('user.data_user', compact('dtuser'));
     }
 
@@ -91,8 +91,11 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
     public function destroy($id)
     {
-        //
+        $user = user::findOrfail($id);
+        $user->delete();
+        return back()->with('info', 'Data Berhasil Dihapus');
     }
 }

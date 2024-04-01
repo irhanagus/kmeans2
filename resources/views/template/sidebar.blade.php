@@ -62,19 +62,19 @@
                 </a>
                 <ul class="nav nav-treeview">
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('atribut')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Atribut</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('preprocessing')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Pre-Processing</p>
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <a href="{{ route('iterasi1')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Iterasi</p>
                         </a>
