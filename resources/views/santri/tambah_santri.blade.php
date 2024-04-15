@@ -54,10 +54,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" id="nama" name="nama" class="form-control" placeholder="Nama Santri">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="jenis_kelamin" name="jenis_kelamin" class="form-control" placeholder="Jenis Kelamin">
+                        <select class="form-control" style="width: 100%;" name="jk_id" id="jk_id">
+                            <option disabled value>Pilih Jenis Kelamin</option>
+                            @foreach ($jk as $item)
+                                <option value="{{ $item->id }}">{{ $item->jenis_kelamin }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="jenjang" name="jenjang" class="form-control" placeholder="Jenjang">
+                        <select class="form-control" style="width: 100%;" name="jenjang_id" id="jenjang_id">
+                            <option disabled value>Pilih Jenjang</option>
+                            @foreach ($jen as $item)
+                                <option value="{{ $item->id }}">{{ $item->jenjang }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <textarea name="alamat" id="alamat" class="form-control" placeholder="Alamat"></textarea>

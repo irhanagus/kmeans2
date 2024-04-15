@@ -64,8 +64,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td><center>{{ $loop->iteration }}</center></td>
                         <td><center>{{ $item->nis }}</center></td>
                         <td>{{ $item->nama }}</td>
-                        <td><center>{{ $item->jenis_kelamin }}</center></td>
-                        <td><center>{{ $item->jenjang }}</center></td>
+                        <td><center>{{ $item->jk->jenis_kelamin }}</center></td>
+                        <td><center>{{ $item->jenjang->jenjang }}</center></td>
                         <td>{{ $item->alamat }}</td>
                         <td><center>
                         <a href="{{ url('edit-santri',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a>

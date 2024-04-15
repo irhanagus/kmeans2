@@ -45,4 +45,8 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::get('/atribut', [KMeansController::class,'atribut'])->name('atribut');
     route::get('/preprocessing', [KMeansController::class,'preprocessing'])->name('preprocessing');
     route::get('/iterasi1', [KMeansController::class,'iterasi1'])->name('iterasi1');
+    route::get('/iterasi2', [KMeansController::class,'iterasi2'])->name('iterasi2');
+    route::get('/iterasi3', [KMeansController::class,'iterasi3'])->name('iterasi3');
+    route::get('/iterasi4', [KMeansController::class,'iterasi4'])->name('iterasi4');
+    route::get('/iterasi5', [KMeansController::class,'iterasi5'])->name('iterasi4');
 });

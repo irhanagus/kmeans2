@@ -12,6 +12,14 @@ class santri extends Model
     protected $table = "santri";
     protected $primarykey = "id";
     protected $fillable = [
-        'id','nis','nama','jenis_kelamin','jenjang','alamat','khd_ngaji','khd_piket','poin_pelanggaran','tingkat_bacaan','tingkat_makna','hasil_ngaji','hasil_piket','hasil_pelanggaran','hasil_bacaan','hasil_makna','rata','kelompok_sementara','kelompok_hasil',
+        'id','nis','nama','jk_id','jenjang_id','alamat','khd_ngaji','khd_piket','poin_pelanggaran','tingkat_bacaan','tingkat_makna','hasil_ngaji','hasil_piket','hasil_pelanggaran','hasil_bacaan','hasil_makna','rata','kelompok_sementara','kelompok_hasil',
     ];
+
+    public function jenjang(){
+        return $this->belongsTo(Jenjang::class);
+    }
+
+    public function jk(){
+        return $this->belongsTo(Jenis_Kelamin::class);
+    }
 }

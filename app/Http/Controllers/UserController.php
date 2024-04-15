@@ -15,7 +15,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        $dtuser = User::paginate(2);
+        $dtuser = User::paginate(3);
         return view('user.data_user', compact('dtuser'));
     }
 

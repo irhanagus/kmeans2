@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\santri;
+use App\Models\Jenjang;
+use App\Models\Jenis_Kelamin;
 
 class SantriController extends Controller
 {
@@ -13,7 +15,7 @@ class SantriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dtsantri = santri::paginate(10);
+        $dtsantri = santri::with('jk','jenjang')->latest()->paginate(10);
         return view('santri.data_santri', compact('dtsantri'));
     }
 
@@ -28,7 +30,9 @@ class SantriController extends Controller
      */
     public function create()
     {
-        return view('santri.tambah_santri');
+        $jk = Jenis_Kelamin::all();
+        $jen = Jenjang::all();
+        return view('santri.tambah_santri', compact('jen','jk'));
     }
 
     /**
@@ -43,8 +47,8 @@ class SantriController extends Controller
         santri::create([
             'nis' => $request->nis,
             'nama' => $request->nama,
-            'jenis_kelamin' => $request->jenis_kelamin,
-            'jenjang' => $request->jenjang,
+            'jk_id' => $request->jk_id,
+            'jenjang_id' => $request->jenjang_id,
             'alamat' => $request->alamat,
             'khd_ngaji' => $request->khd_ngaji ?? '0',
             'khd_piket' => $request->khd_piket ?? '0',
@@ -83,8 +87,10 @@ class SantriController extends Controller
      */
     public function edit($id)
     {
+        $jk = Jenis_Kelamin::all();
+        $jen = Jenjang::all();
         $santri = santri::findOrfail($id);
-        return view('santri.edit_santri',compact('santri'));
+        return view('santri.edit_santri',compact('santri','jk','jen'));
     }
 
     /**

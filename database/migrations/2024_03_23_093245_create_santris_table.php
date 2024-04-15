@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('nis', 10);
             $table->string('nama', 100);
-            $table->string('jenis_kelamin', 10);
-            $table->string('jenjang', 10);
+            $table->bigInteger('jk_id');
+            $table->bigInteger('jenjang_id');
             $table->string('alamat', 100);
             $table->char('khd_ngaji', 10);
             $table->char('khd_piket', 10);
