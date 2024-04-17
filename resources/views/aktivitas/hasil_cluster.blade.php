@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
-    <title>K-Means | User</title>
+    <title>K-Means | Hasil Sesuai Cluster</title>
     @include('template.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -25,12 +25,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Data User</h1>
+            <h1 class="m-0">Hasil</h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">Data User</li>
+              <li class="breadcrumb-item active">Hasil Sesuai Cluster</li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -43,7 +43,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <div class="card card-info card-outline">
             <div class="card-header">
                 <div class="card-tools">
-                    <a href="{{ route('tambah-user')}}" class="btn btn-success">Tambah User <i class="fas fa-plus-square"></i></a>
+                    <a href="{{ route('cetak-cluster')}}" class="btn btn-success" target="_blank">Cetak Hasil <i class="fa-solid fa-print"></i></a>
                     {{-- <a href="#" class="btn btn-primary" data-Toggle="Model" data-Toggle="#exampleModel">Import</a> --}}
                 </div>
             </div>
@@ -51,31 +51,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th><center>NO</center></th>
+                        <th><center>CLUSTER</center></th>
+                        <th><center>NIS</center></th>
                         <th><center>NAMA</center></th>
-                        <th><center>LEVEL</center></th>
-                        <th><center>EMAIL</center></th>
-                        <th><center>AKSI</center></th>
+                        <th><center>JENIS KELAMIN</center></th>
+                        <th><center>JENJANG</center></th>
                     </tr>
-                    @foreach ($dtuser as $item)
+                    @foreach ($dtsantri as $item)
                     <tr>
-                        <td><center>{{ $loop->iteration }}.</center></td>
-                        <td>{{ $item->name }}</td>
-                        <td><center>{{ $item->level }}</center></td>
-                        <td><center>{{ $item->email }}</center></td>
-                        <td><center>
-                            <a href="{{ url('edit-user',$item->id) }}"><i class="nav-icon fas fa-edit"></i> </a>
-                            |
-                            <a href="{{ url('delete-user',$item->id) }}"> <i class="fa-solid fa-trash" style="color: red"></i></a>
-                            </center>
-                        </td>
+                        <td><center>{{ $item->kelompok_hasil }}</center></td>
+                        <td><center>{{ $item->nis }}</center></td>
+                        <td>{{ $item->nama }}</td>
+                        <td><center>{{ $item->jk->jenis_kelamin }}</center></td>
+                        <td><center>{{ $item->jenjang->jenjang }}</center></td>
                     </tr>
                     @endforeach
                 </table>
             </div>
 
             <div class="card-footer">
-                {{ $dtuser->links() }}
+                {{ $dtsantri->links() }}
             </div>
         </div>
     </div>

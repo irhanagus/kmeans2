@@ -71,6 +71,11 @@ class UserController extends Controller
         return view('user.edit_user',compact('user'));
     }
 
+    public function profil()
+    {
+        return view('user.profil_user');
+    }
+
     /**
      * Update the specified resource in storage.
      *

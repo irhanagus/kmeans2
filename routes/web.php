@@ -7,9 +7,7 @@ use App\Http\Controllers\SantriController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\KMeansController;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');})->name('welcome');
 
 
 route::get('/login', [LoginController::class,'halamanlogin'])->name('login');
@@ -41,6 +39,7 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::get('/edit-user/{id}', [UserController::class,'edit'])->name('edit-user');
     route::post('/update-user/{id}', [UserController::class,'update'])->name('update-user');
     route::get('/delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
+    route::get('/profil-user', [UserController::class,'profil'])->name('profil-user');
 
     route::get('/atribut', [KMeansController::class,'atribut'])->name('atribut');
     route::get('/preprocessing', [KMeansController::class,'preprocessing'])->name('preprocessing');
@@ -49,4 +48,9 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::get('/iterasi3', [KMeansController::class,'iterasi3'])->name('iterasi3');
     route::get('/iterasi4', [KMeansController::class,'iterasi4'])->name('iterasi4');
     route::get('/iterasi5', [KMeansController::class,'iterasi5'])->name('iterasi4');
+
+    route::get('/hasil-santri', [SantriController::class,'hasilSantri'])->name('hasil-santri');
+    route::get('/cetak-hasil', [SantriController::class,'cetakHasil'])->name('cetak-hasil');
+    route::get('/hasil-cluster', [SantriController::class,'hasilCluster'])->name('hasil-cluster');
+    route::get('/cetak-cluster', [SantriController::class,'cetakCluster'])->name('cetak-cluster');
 });

@@ -15,7 +15,7 @@ class SantriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dtsantri = santri::with('jk','jenjang')->latest()->paginate(10);
+        $dtsantri = santri::with('jk','jenjang')->paginate(10);
         return view('santri.data_santri', compact('dtsantri'));
     }
 
@@ -23,6 +23,27 @@ class SantriController extends Controller
         $aktivsantri = santri::all();
         return view('aktivitas.aktiv_santri', compact('aktivsantri'));
     }
+
+    public function hasilSantri(){
+        $dtsantri = santri::with('jk','jenjang')->paginate(10);
+        return view('aktivitas.hasil_santri', compact('dtsantri'));
+    }
+
+    public function cetakHasil(){
+        $dtsantri = santri::with('jk','jenjang')->get();
+        return view('aktivitas.cetak_hasil', compact('dtsantri'));
+    }
+
+    public function hasilCluster(){
+        $dtsantri = santri::with('jk','jenjang')->orderBy('kelompok_hasil','asc')->paginate(10);
+        return view('aktivitas.hasil_cluster', compact('dtsantri'));
+    }
+
+    public function cetakCluster(){
+        $dtsantri = santri::with('jk','jenjang')->orderBy('kelompok_hasil','asc')->get();
+        return view('aktivitas.cetak_cluster', compact('dtsantri'));
+    }
+
     /**
      * Show the form for creating a new resource.
      *
