@@ -218,8 +218,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="card-body">
                 <center>
-                <p class="card-text">Klik Lanjutkan untuk melanjutkan ke Iterasi Selanjutnya</p>
-                <a href="{{ route('iterasi3')}}" class="btn btn-primary">Lanjutkan</a>
+                <p class="card-text">Klik Lanjutkan untuk melanjutkan ke Iterasi Selanjutnya Hingga Selesai</p>
+                <a href="{{ route('iterasi-akhir')}}" class="btn btn-primary">Lanjutkan</a>
                 </center>
             </div>
         </div>

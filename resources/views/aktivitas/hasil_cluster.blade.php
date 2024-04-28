@@ -51,7 +51,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
-                        <th><center>CLUSTER</center></th>
+                        <th><center>KELOMPOK</center></th>
                         <th><center>NIS</center></th>
                         <th><center>NAMA</center></th>
                         <th><center>JENIS KELAMIN</center></th>
@@ -59,7 +59,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                     @foreach ($dtsantri as $item)
                     <tr>
-                        <td><center>{{ $item->kelompok_hasil }}</center></td>
+                        <td><center>
+                            @php
+                                $hasil = 0;
+                                if ($item->kelompok_hasil == 1) {
+                                    $hasil = "Baik";
+                                } elseif ($item->kelompok_hasil == 2) {
+                                    $hasil = "Sedang";
+                                } elseif ($item->kelompok_hasil == 3) {
+                                    $hasil = "Buruk";
+                                }
+                                echo $hasil;
+                            @endphp
+                        </center></td>
                         <td><center>{{ $item->nis }}</center></td>
                         <td>{{ $item->nama }}</td>
                         <td><center>{{ $item->jk->jenis_kelamin }}</center></td>

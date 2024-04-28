@@ -23,6 +23,7 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
 
     route::get('/data-santri', [SantriController::class,'index'])->name('data-santri');
     route::get('/tambah-santri', [SantriController::class,'create'])->name('tambah-santri');
+    route::get('/import-santri', [SantriController::class,'import'])->name('import-santri');
     route::post('/simpan-santri', [SantriController::class,'store'])->name('simpan-santri');
     route::get('/edit-santri/{id}', [SantriController::class,'edit'])->name('edit-santri');
     route::post('/update-santri/{id}', [SantriController::class,'update'])->name('update-santri');
@@ -43,11 +44,10 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
 
     route::get('/atribut', [KMeansController::class,'atribut'])->name('atribut');
     route::get('/preprocessing', [KMeansController::class,'preprocessing'])->name('preprocessing');
+    route::get('/iterasi', [KMeansController::class,'hitungiterasi'])->name('iterasi');
     route::get('/iterasi1', [KMeansController::class,'iterasi1'])->name('iterasi1');
     route::get('/iterasi2', [KMeansController::class,'iterasi2'])->name('iterasi2');
-    route::get('/iterasi3', [KMeansController::class,'iterasi3'])->name('iterasi3');
-    route::get('/iterasi4', [KMeansController::class,'iterasi4'])->name('iterasi4');
-    route::get('/iterasi5', [KMeansController::class,'iterasi5'])->name('iterasi4');
+    route::get('/iterasi-akhir', [KMeansController::class,'iterasiAkhir'])->name('iterasi-akhir');
 
     route::get('/hasil-santri', [SantriController::class,'hasilSantri'])->name('hasil-santri');
     route::get('/cetak-hasil', [SantriController::class,'cetakHasil'])->name('cetak-hasil');

@@ -21,7 +21,7 @@
         <p align="center"><b>Laporan Hasil</b></p>
         <table class="static" align="center" rules="alt" border="1px" style="width: 95%">
             <tr>
-                <th>CLUSTER</th>
+                <th>KELOMPOK</th>
                 <th>NIS</th>
                 <th>NAMA</th>
                 <th>JENIS KELAMIN</th>
@@ -29,7 +29,19 @@
             </tr>
             @foreach ($dtsantri as $item)
                 <tr>
-                    <td><center>{{ $item->kelompok_hasil }}</center></td>
+                    <td><center>
+                        @php
+                            $hasil = 0;
+                            if ($item->kelompok_hasil == 1) {
+                                $hasil = "Baik";
+                            } elseif ($item->kelompok_hasil == 2) {
+                                $hasil = "Sedang";
+                            } elseif ($item->kelompok_hasil == 3) {
+                                $hasil = "Buruk";
+                            }
+                            echo $hasil;
+                        @endphp
+                    </center></td>
                     <td><center>{{ $item->nis }}</center></td>
                     <td>{{ $item->nama }}</td>
                     <td><center>{{ $item->jk->jenis_kelamin }}</center></td>

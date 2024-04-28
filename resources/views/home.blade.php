@@ -47,14 +47,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-info">
             <div class="inner">
-                <h3>150</h3>
-
+                <h3>
+                    @php
+                        echo $jumlah_santri;
+                    @endphp
+                </h3>
                 <p>Jumlah Santri</p>
             </div>
             <div class="icon">
                 <i class="fa-solid fa-users"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
             </div>
         </div>
         <!-- ./col -->
@@ -62,14 +65,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-success">
             <div class="inner">
-                <h3>53<sup style="font-size: 20px"></sup></h3>
-
+                <h3>
+                    @php
+                        echo $jumlah_dataC1;
+                    @endphp
+                    <sup style="font-size: 20px"></sup></h3>
                 <p>Cluster 1 (Baik)</p>
             </div>
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
             </div>
         </div>
         <!-- ./col -->
@@ -77,14 +83,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-warning">
             <div class="inner">
-                <h3>44</h3>
-
+                <h3>
+                    @php
+                        echo $jumlah_dataC2;
+                    @endphp
+                </h3>
                 <p>Cluster 2 (Sedang)</p>
             </div>
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
             </div>
         </div>
         <!-- ./col -->
@@ -92,14 +101,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- small box -->
             <div class="small-box bg-danger">
             <div class="inner">
-                <h3>65</h3>
-
+                <h3>
+                    @php
+                        echo $jumlah_dataC3;
+                    @endphp
+                </h3>
                 <p>Cluster 3 (Buruk)</p>
             </div>
             <div class="icon">
                 <i class="fa-solid fa-user"></i>
             </div>
-            <a href="#" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="#" class="small-box-footer"></a>
             </div>
         </div>
         <!-- ./col -->

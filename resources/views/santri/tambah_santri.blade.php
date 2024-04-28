@@ -40,10 +40,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-        <div class="card card-info card-outline">
+        {{-- <div class="card card-info card-outline">
             <div class="card-header">
-                <h3>Tambah Data</h3>
+                <h3>Upload Data Excel</h3>
             </div>
+            <div class="card-body">
+                <form action="{{ route('import-santri') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="file" name="file" class="form-control">
+                    <button class="btn btn-info" class="form-control">Upload</button>
+                </form>
+            </div>
+        </div> --}}
+        <div class="card card-info card-outline">
             <div class="card-body">
                 <form action="{{ route('simpan-santri') }}" method="post">
                     {{ csrf_field() }}

@@ -2,7 +2,7 @@
     <!-- Brand Logo -->
     <a href="{{ route('home')}}" class="brand-link">
     <img src="{{ asset('AdminLte/dist/img/logoPPRU.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-    <span class="brand-text font-weight-light">Aplikasi K-Means</span>
+    <span class="brand-text font-weight-light">Ponpes Riyadhul Ulum</span>
     </a>
 
     <!-- Sidebar -->
@@ -76,7 +76,7 @@
                         </a>
                     </li>
                     <li class="nav-item">
-                        <a href="{{ route('iterasi1')}}" class="nav-link">
+                        <a href="{{ route('iterasi')}}" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Iterasi</p>
                         </a>

@@ -20,7 +20,7 @@ class SantriController extends Controller
     }
 
     public function indexaktiv(){
-        $aktivsantri = santri::all();
+        $aktivsantri = santri::paginate(10);
         return view('aktivitas.aktiv_santri', compact('aktivsantri'));
     }
 

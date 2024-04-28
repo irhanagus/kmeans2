@@ -56,7 +56,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th><center>NAMA</center></th>
                         <th><center>JENIS KELAMIN</center></th>
                         <th><center>JENJANG</center></th>
-                        <th><center>CLUSTER</center></th>
+                        <th><center>KELOMPOK</center></th>
                     </tr>
                     @foreach ($dtsantri as $item)
                     <tr>
@@ -65,7 +65,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <td>{{ $item->nama }}</td>
                         <td><center>{{ $item->jk->jenis_kelamin }}</center></td>
                         <td><center>{{ $item->jenjang->jenjang }}</center></td>
-                        <td><center>{{ $item->kelompok_hasil }}</center></td>
+                        <td><center>
+                            @php
+                                $hasil = 0;
+                                if ($item->kelompok_hasil == 1) {
+                                    $hasil = "Baik";
+                                } elseif ($item->kelompok_hasil == 2) {
+                                    $hasil = "Sedang";
+                                } elseif ($item->kelompok_hasil == 3) {
+                                    $hasil = "Buruk";
+                                }
+                                echo $hasil;
+                            @endphp
+                        </center></td>
                     </tr>
                     @endforeach
                 </table>

@@ -5,7 +5,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="en">
 <head>
-    <title>K-Means | Iterasi 3</title>
+    <title>K-Means | Iterasi Akhir</title>
     @include('template.head')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -25,13 +25,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Iterasi 3</h1>
+            <h1 class="m-0">
+                @php
+                    echo 'Iterasi ke '. $iterasi_count;
+                @endphp
+            </h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item active">Imp. K-Means</li>
-              <li class="breadcrumb-item active">Iterasi 3</li>
+              <li class="breadcrumb-item active">
+                @php
+                    echo 'Iterasi ke '. $iterasi_count;
+                @endphp
+              </li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -87,7 +95,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
 
         <div class="card card-info card-outline">
-            <h4 class="m-0"><center>Iterasi 3</center></h4>
+            <h4 class="m-0"><center>
+                @php
+                    echo 'Iterasi ke '. $iterasi_count;
+                @endphp
+            </center></h4>
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
@@ -218,8 +230,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="card-body">
                 <center>
-                <p class="card-text">Klik Lanjutkan untuk melanjutkan ke Iterasi Selanjutnya</p>
-                <a href="{{ route('iterasi4')}}" class="btn btn-primary">Lanjutkan</a>
+                <p class="card-text">Proses Selesai</p>
                 </center>
             </div>
         </div>

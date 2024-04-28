@@ -57,7 +57,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     @foreach ($aktivsantri as $item)
                     <tr>
                         <td><center>{{ $item->nis }}</center></td>
-                        <td><center>{{ $item->nama }}</center></td>
+                        <td>{{ $item->nama }}</td>
                         <td><center>{{ $item->hasil_ngaji }}</center></td>
                         <td><center>{{ $item->hasil_piket }}</center></td>
                         <td><center>{{ $item->hasil_pelanggaran }}</center></td>
@@ -66,6 +66,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </tr>
                     @endforeach
                 </table>
+            </div>
+            <div class="card-footer">
+                {{ $aktivsantri->links() }}
             </div>
         </div>
     </div>
