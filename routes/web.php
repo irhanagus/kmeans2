@@ -34,12 +34,6 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::post('/updateaktiv-santri/{id}', [SantriController::class,'updateaktiv'])->name('updateaktiv-santri');
     route::get('/clearaktiv-santri/{id}', [SantriController::class,'destroyaktiv'])->name('clearaktiv-santri');
 
-    route::get('/data-user', [UserController::class,'index'])->name('data-user');
-    route::get('/tambah-user', [UserController::class,'create'])->name('tambah-user');
-    route::post('/simpan-user', [UserController::class,'store'])->name('simpan-user');
-    route::get('/edit-user/{id}', [UserController::class,'edit'])->name('edit-user');
-    route::post('/update-user/{id}', [UserController::class,'update'])->name('update-user');
-    route::get('/delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
     route::get('/profil-user', [UserController::class,'profil'])->name('profil-user');
 
     route::get('/atribut', [KMeansController::class,'atribut'])->name('atribut');
@@ -53,4 +47,15 @@ route::group(['middleware'=>['auth','ceklevel:admin,operator']], function () {
     route::get('/cetak-hasil', [SantriController::class,'cetakHasil'])->name('cetak-hasil');
     route::get('/hasil-cluster', [SantriController::class,'hasilCluster'])->name('hasil-cluster');
     route::get('/cetak-cluster', [SantriController::class,'cetakCluster'])->name('cetak-cluster');
+});
+
+route::group(['middleware'=>['auth','ceklevel:admin']], function () {
+    route::get('/data-user', [UserController::class,'index'])->name('data-user');
+    route::get('/tambah-user', [UserController::class,'create'])->name('tambah-user');
+    route::post('/simpan-user', [UserController::class,'store'])->name('simpan-user');
+    route::get('/edit-user/{id}', [UserController::class,'edit'])->name('edit-user');
+    route::post('/update-user/{id}', [UserController::class,'update'])->name('update-user');
+    route::get('/delete-user/{id}', [UserController::class,'destroy'])->name('delete-user');
+
+    route::get('/reset', [KMeansController::class,'resetperhitungan'])->name('reset');
 });

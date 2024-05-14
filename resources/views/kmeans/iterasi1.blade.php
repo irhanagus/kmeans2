@@ -129,10 +129,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th><center>Cluster Terdekat<br>(Jarak Minimum)</center></th>
                         <th><center>Kelompok<br>Data</center></th>
                     </tr>
-                    @foreach ($aktivsantri as $item)
+                    @foreach ($dtsantri as $item)
                         <tr>
                             <td><center>{{ $item->nis }}</center></td>
-                            <td><center>{{ $item->nama }}</center></td>
+                            <td>{{ $item->nama }}</td>
                             <td><center>{{
                                 $hasilC1 = sqrt(pow($item->hasil_ngaji - $aktivsantriterbesar->hasil_ngaji, 2) +
                                 pow($item->hasil_piket - $aktivsantriterbesar->hasil_piket, 2) +
@@ -176,7 +176,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </table>
             </div>
             <div class="card-footer">
-                {{ $aktivsantri->links() }}
+                {{ $dtsantri->links() }}
             </div>
         </div>
 

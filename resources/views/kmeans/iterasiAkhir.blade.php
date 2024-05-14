@@ -111,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <th><center>Cluster Terdekat<br>(Jarak Minimum)</center></th>
                         <th><center>Kelompok<br>Data</center></th>
                     </tr>
-                    @foreach ($aktivsantri as $santri)
+                    @foreach ($dtsantri as $santri)
                         <tr>
                             <td><center>{{ $santri->nis }}</center></td>
                             <td><center>{{ $santri->nama }}</center></td>
@@ -158,7 +158,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </table>
             </div>
             <div class="card-footer">
-                {{ $aktivsantri->links() }}
+                {{ $dtsantri->links() }}
             </div>
         </div>
 
@@ -230,7 +230,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
             <div class="card-body">
                 <center>
-                <p class="card-text">Proses Selesai</p>
+                <p class="card-text"><b>Hasil iterasi sekarang sama dengan hasil iterasi sebelumnya.</b></p>
+                <h5 class="m-0"><b>..Proses Selesai..</b></h5>
                 </center>
             </div>
         </div>

@@ -15,27 +15,27 @@ class SantriController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(){
-        $dtsantri = santri::with('jk','jenjang')->paginate(10);
+        $dtsantri = santri::with('jk','jenjang')->orderBy('updated_at', 'desc')->paginate(50);
         return view('santri.data_santri', compact('dtsantri'));
     }
 
     public function indexaktiv(){
-        $aktivsantri = santri::paginate(10);
+        $aktivsantri = santri::paginate(50);
         return view('aktivitas.aktiv_santri', compact('aktivsantri'));
     }
 
     public function hasilSantri(){
-        $dtsantri = santri::with('jk','jenjang')->paginate(10);
+        $dtsantri = santri::with('jk','jenjang')->orderBy('nis','asc')->paginate(50);
         return view('aktivitas.hasil_santri', compact('dtsantri'));
     }
 
     public function cetakHasil(){
-        $dtsantri = santri::with('jk','jenjang')->get();
+        $dtsantri = santri::with('jk','jenjang')->orderBy('nis','asc')->get();
         return view('aktivitas.cetak_hasil', compact('dtsantri'));
     }
 
     public function hasilCluster(){
-        $dtsantri = santri::with('jk','jenjang')->orderBy('kelompok_hasil','asc')->paginate(10);
+        $dtsantri = santri::with('jk','jenjang')->orderBy('kelompok_hasil','asc')->paginate(50);
         return view('aktivitas.hasil_cluster', compact('dtsantri'));
     }
 
