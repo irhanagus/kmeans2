@@ -193,7 +193,7 @@ class SantriController extends Controller
     private function hitungHasilNgaji($khd_ngaji)
     {
         if ($khd_ngaji >= 81) {
-            return 1;
+            return 1.0;
         } elseif ($khd_ngaji >= 61) {
             return 0.8;
         } elseif ($khd_ngaji >= 41) {
@@ -209,7 +209,7 @@ class SantriController extends Controller
     private function hitungHasilPiket($khd_piket)
     {
         if ($khd_piket >= 81) {
-            return 1;
+            return 1.0;
         } elseif ($khd_piket >= 61) {
             return 0.8;
         } elseif ($khd_piket >= 41) {
@@ -225,7 +225,7 @@ class SantriController extends Controller
     private function hitungHasilPelanggaran($poin_pelanggaran)
     {
         if ($poin_pelanggaran <= 200) {
-            return 1;
+            return 1.0;
         } elseif ($poin_pelanggaran <= 400) {
             return 0.8;
         } elseif ($poin_pelanggaran <= 600) {
@@ -242,7 +242,7 @@ class SantriController extends Controller
     {
         switch ($tingkat_bacaan) {
             case "Tahsin":
-                return 1;
+                return 1.0;
             case 4:
                 return 0.8;
             case 3:
@@ -252,7 +252,7 @@ class SantriController extends Controller
             case 1:
                 return 0.2;
             default:
-                return "Tidak terdeteksi";
+                return 0.0;
         }
     }
 
@@ -261,7 +261,7 @@ class SantriController extends Controller
     {
         switch ($tingkat_makna) {
             case "Al-Idlafi":
-                return 1;
+                return 1.0;
             case "Al-Sarii":
                 return 0.75;
             case "Al-Taanni":
@@ -269,7 +269,7 @@ class SantriController extends Controller
             case "Kitabah":
                 return 0.25;
             default:
-                return "Tidak terdeteksi";
+                return 0.0;
         }
     }
 

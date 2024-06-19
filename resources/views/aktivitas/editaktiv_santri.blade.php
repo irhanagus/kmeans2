@@ -61,10 +61,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" id="poin_pelanggaran" name="poin_pelanggaran" class="form-control" placeholder="Jumlah Poin Pelanggaran" value="{{ $santri->poin_pelanggaran}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="tingkat_bacaan" name="tingkat_bacaan" class="form-control" placeholder="Tingkat Bacaan" value="{{ $santri->tingkat_bacaan}}">
+                        {{--<input type="text" id="tingkat_bacaan" name="tingkat_bacaan" class="form-control" placeholder="Tingkat Bacaan" value="{{ $santri->tingkat_bacaan}}">--}}
+                        <select class="form-control" style="width: 100%;" name="tingkat_bacaan" id="tingkat_bacaan">
+                            <option value="Tahsin" {{ $santri->tingkat_bacaan == 'Tahsin' ? 'selected' : '' }}>Tahsin</option>
+                            <option value="4" {{ $santri->tingkat_bacaan == '4' ? 'selected' : '' }}>4</option>
+                            <option value="3" {{ $santri->tingkat_bacaan == '3' ? 'selected' : '' }}>3</option>
+                            <option value="2" {{ $santri->tingkat_bacaan == '2' ? 'selected' : '' }}>2</option>
+                            <option value="1" {{ $santri->tingkat_bacaan == '1' ? 'selected' : '' }}>1</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <input type="text" id="tingkat_makna" name="tingkat_makna" class="form-control" placeholder="Tingkat Makna" value="{{ $santri->tingkat_makna}}">
+                        {{--<input type="text" id="tingkat_makna" name="tingkat_makna" class="form-control" placeholder="Tingkat Makna" value="{{ $santri->tingkat_makna}}">--}}
+                        <select class="form-control" style="width: 100%;" name="tingkat_makna" id="tingkat_makna">
+                            <option value="Al-Idlafi" {{ $santri->tingkat_bacaan == 'Al-Idlafi' ? 'selected' : '' }}>Al-Idlafi</option>
+                            <option value="Al-Sarii" {{ $santri->tingkat_bacaan == 'Al-Sarii' ? 'selected' : '' }}>Al-Sarii'</option>
+                            <option value="At-Taanni" {{ $santri->tingkat_bacaan == 'At-Taanni' ? 'selected' : '' }}>At-Taanni</option>
+                            <option value="Kitabah" {{ $santri->tingkat_bacaan == 'Kitabah' ? 'selected' : '' }}>Kitabah</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Ubah Data</button>
