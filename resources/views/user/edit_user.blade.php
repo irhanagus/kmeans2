@@ -49,7 +49,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" id="name" name="name" class="form-control" placeholder="Nama" value="{{ $user->name}}">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="level" name="level" class="form-control" placeholder="Level" value="{{ $user->level}}">
+                        <select class="form-control" style="width: 100%;" name="level" id="level">
+                            <option value="admin" {{ $user->level == 'admin' ? 'selected' : '' }}>Admin</option>
+                            <option value="operator" {{ $user->level == 'operator' ? 'selected' : '' }}>Operator</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" id="email" name="email" class="form-control" placeholder="email" value="{{ $user->email}}">

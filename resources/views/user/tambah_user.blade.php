@@ -49,7 +49,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <input type="text" id="name" name="name" class="form-control" placeholder="Nama">
                     </div>
                     <div class="form-group">
-                        <input type="text" id="level" name="level" class="form-control" placeholder="Level">
+                        <select class="form-control" style="width: 100%;" name="level" id="level">
+                            <option disabled value>Pilih Level</option>
+                            <option value="admin">Admin</option>
+                            <option value="operator">Operator</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <input type="text" id="email" name="email" class="form-control" placeholder="email">
