@@ -73,10 +73,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="form-group">
                         {{--<input type="text" id="tingkat_makna" name="tingkat_makna" class="form-control" placeholder="Tingkat Makna" value="{{ $santri->tingkat_makna}}">--}}
                         <select class="form-control" style="width: 100%;" name="tingkat_makna" id="tingkat_makna">
-                            <option value="Al-Idlafi" {{ $santri->tingkat_bacaan == 'Al-Idlafi' ? 'selected' : '' }}>Al-Idlafi</option>
-                            <option value="Al-Sarii" {{ $santri->tingkat_bacaan == 'Al-Sarii' ? 'selected' : '' }}>Al-Sarii'</option>
-                            <option value="At-Taanni" {{ $santri->tingkat_bacaan == 'At-Taanni' ? 'selected' : '' }}>At-Taanni</option>
-                            <option value="Kitabah" {{ $santri->tingkat_bacaan == 'Kitabah' ? 'selected' : '' }}>Kitabah</option>
+                            <option value="Al-Idlafi" {{ $santri->tingkat_makna == 'Al-Idlafi' ? 'selected' : '' }}>Al-Idlafi</option>
+                            <option value="Al-Sarii" {{ $santri->tingkat_makna == 'Al-Sarii' ? 'selected' : '' }}>Al-Sarii'</option>
+                            <option value="At-Taanni" {{ $santri->tingkat_makna == 'At-Taanni' ? 'selected' : '' }}>At-Taanni</option>
+                            <option value="Kitabah" {{ $santri->tingkat_makna == 'Kitabah' ? 'selected' : '' }}>Kitabah</option>
                         </select>
                     </div>
                     <div class="form-group">

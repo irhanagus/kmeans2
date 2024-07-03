@@ -41,7 +41,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Main content -->
     <div class="content">
         <div class="card card-info card-outline">
-
             <div class="card-body">
                 <table class="table table-bordered">
                     <tr>
@@ -72,7 +71,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </table>
             </div>
             <div class="card-footer">
-                {{ $aktivsantri->links() }}
+              {{ $aktivsantri->links() }}
             </div>
         </div>
     </div>

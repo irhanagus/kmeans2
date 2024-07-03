@@ -264,7 +264,7 @@ class SantriController extends Controller
                 return 1.0;
             case "Al-Sarii":
                 return 0.75;
-            case "Al-Taanni":
+            case "At-Taanni":
                 return 0.5;
             case "Kitabah":
                 return 0.25;
